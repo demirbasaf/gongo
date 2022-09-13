@@ -1,6 +1,6 @@
 # gongo
 
-A model-based Golang ORM for mongoDB
+Easy to use model-based Go ORM for MongoDB
 
 ``` 
 gongo.Connect()
