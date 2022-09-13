@@ -1,3 +1,3 @@
 # gongo
 
-light go orm for mongodb
+A model-based Golang ORM for mongoDB
