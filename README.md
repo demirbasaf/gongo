@@ -1,6 +1,6 @@
 # gongo
 
-Easy to use model-based Go ORM for MongoDB
+🔵 Easy to use model-based Go ORM for MongoDB
 
 ``` 
 gongo.Connect()
