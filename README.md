@@ -4,7 +4,7 @@
 
 ``` 
 connection, err := gongo.Connect(ctx, config)
-dogModel := gongo.Model("dogs", examples.Dog{}, connection)
+dogModel := gongo.Model("dogs", domain.Dog{}, connection)
 
 max := examples.Dog{Name: "Max"}
 dogModel.New(ctx, max)
