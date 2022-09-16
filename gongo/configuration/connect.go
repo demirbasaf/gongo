@@ -6,8 +6,13 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func Connect(ctx context.Context, c GongoConfig) (*mongo.Client, error) {
+func Connect(ctx context.Context, c GongoConfig) (*GongoConnection, error) {
 	client, err := mongo.NewClient(options.Client().ApplyURI(c.URI))
+
+	gongoConnection := GongoConnection{
+		Client:   client,
+		Database: c.Database,
+	}
 
 	if err != nil {
 		return nil, err
@@ -19,5 +24,5 @@ func Connect(ctx context.Context, c GongoConfig) (*mongo.Client, error) {
 		return nil, clientErr
 	}
 
-	return client, nil
+	return &gongoConnection, nil
 }

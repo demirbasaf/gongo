@@ -1,16 +1,22 @@
 package entity
 
-import "reflect"
+import (
+	"github.com/afdemirbas/gongo/gongo/configuration"
+	"reflect"
+)
 
-func NewModel(e interface{}) MongoModel {
+func NewModel(c string, e interface{}, gc *configuration.GongoConnection) MongoModel {
 	t := reflect.TypeOf(e)
 	if t.Kind() == reflect.Struct {
 		name := t.Name()
 		fields := extractFields(e)
 
 		return &Model{
-			Name:   name,
-			Fields: fields,
+			Name:       name,
+			Fields:     fields,
+			Client:     *gc.Client,
+			Database:   gc.Database,
+			Collection: c,
 		}
 	}
 	return nil

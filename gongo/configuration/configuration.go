@@ -1,6 +1,13 @@
 package configuration
 
+import "go.mongodb.org/mongo-driver/mongo"
+
 type GongoConfig struct {
-	DatabaseName string
-	URI          string
+	Database string
+	URI      string
+}
+
+type GongoConnection struct {
+	Client   *mongo.Client
+	Database string
 }

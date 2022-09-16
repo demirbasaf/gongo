@@ -1,7 +1,12 @@
 package entity
 
+import (
+	"context"
+	"go.mongodb.org/mongo-driver/mongo"
+)
+
 type MongoModel interface {
-	New(e interface{}) string
+	New(ctx context.Context, e interface{}) interface{}
 	Find()
 	FindMany()
 	FindOne()
@@ -10,12 +15,15 @@ type MongoModel interface {
 }
 
 type Model struct {
-	Name   string
-	Fields []string
+	Database   string
+	Collection string
+	Client     mongo.Client
+	Name       string
+	Fields     []string
 }
 
-func (m *Model) New(e interface{}) string {
-	return New(m)
+func (m *Model) New(ctx context.Context, e interface{}) interface{} {
+	return New(ctx, m, e)
 }
 
 func (m *Model) Find() {
