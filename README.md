@@ -4,8 +4,8 @@
 
 ``` 
 connection, err := gongo.Connect(ctx, config)
-dogModel := gongo.Model("dogs", domain.Dog{}, connection)
+dogModel := gongo.Model("Dogs", domain.Dog{}, connection)
 
-max := domain.Dog{Name: "Max"}
+max := &domain.Dog{Name: "Max"}
 dogModel.New(ctx, max)
 ```
