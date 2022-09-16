@@ -1,5 +1,5 @@
 package entity
 
-func New(m Model) string {
+func New(m *Model) string {
 	return m.Name
 }

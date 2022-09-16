@@ -15,7 +15,7 @@ type Model struct {
 }
 
 func (m *Model) New(e interface{}) string {
-	return New(*m)
+	return New(m)
 }
 
 func (m *Model) Find() {

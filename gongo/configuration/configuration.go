@@ -1,5 +1,6 @@
 package configuration
 
 type GongoConfig struct {
-	URI string
+	DatabaseName string
+	URI          string
 }
