@@ -3,12 +3,9 @@
 🔵 Easy to use model-based Go ORM for MongoDB
 
 ``` 
-gongo.Connect()
+connection, err := gongo.Connect(ctx, config)
+dogModel := gongo.Model("dogs", examples.Dog{}, connection)
 
-catModel := gongo.Model(domain.Cat{})
-cats := catModel.Find()
-
-dog := domain.Dog{ Name: "Max" }
-dogModel := gongo.Model(domain.Dog{})
-dogModel.New(dog)
+max := examples.Dog{Name: "Max"}
+dogModel.New(ctx, max)
 ```
