@@ -13,3 +13,7 @@ func Connect(ctx context.Context, c configuration.GongoConfig) (*configuration.G
 func Model(c string, e interface{}, gc *configuration.GongoConnection) entity.MongoModel {
 	return entity.NewModel(c, e, gc)
 }
+
+func QueryBuilder() string {
+	return ""
+}
